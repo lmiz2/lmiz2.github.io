@@ -93,10 +93,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Song HyeonSeok"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "**사람**만나는게 좋은 개발자."
+  location         : "Seoul, Republic of Korea"
   email            :
   links:
     - label: "Email"
