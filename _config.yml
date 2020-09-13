@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "dokku__"
   avatar           : "/assets/img/IMG_0880.jpeg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "**사람**만나는게 좋은 개발자."
+  bio              : "**사람만나는게 좋은 개발자.**"
   location         : "Seoul, South Korea"
   email            : shs3146@gmail.com
   links:
