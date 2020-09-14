@@ -1,0 +1,525 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.20.1 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>GitHubPages를 이용하여 블로그 만들기  (1) - dokku__’s ⭐Favorites</title>
+<meta name="description" content="시작하며">
+
+
+  <meta name="author" content="dokku__">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="dokku__'s ⭐Favorites">
+<meta property="og:title" content="GitHubPages를 이용하여 블로그 만들기  (1)">
+<meta property="og:url" content="http://localhost:4000/exp/2243/">
+
+
+  <meta property="og:description" content="시작하며">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-09-14T19:37:02+09:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/exp/2243/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Song Hyeon Seok",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="b66Ph2C26ogI3c3YXktXvQQdKChV8MLnP9Bi_20R8QI" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="dokku__'s ⭐Favorites Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          dokku__'s ⭐Favorites
+          <span class="site-subtitle">초보 개발자의 즐겨찾기</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/lmiz2?tab=repositories">Github repository</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/img/IMG_0880.jpeg" alt="dokku__" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">dokku__</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p><strong>사람만나는게 좋은 개발자.</strong></p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://github.com/lmiz2?tab=repositories" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.instagram.com/dokku___/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:shs3146@gmail.com">
+            <meta itemprop="email" content="shs3146@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i><span class="label">Email</span>
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="GitHubPages를 이용하여 블로그 만들기  (1)">
+    <meta itemprop="description" content="시작하며">
+    <meta itemprop="datePublished" content="2020-09-14T19:37:02+09:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">GitHubPages를 이용하여 블로그 만들기  (1)
+</h1>
+          
+
+
+  <p class="page__meta">
+
+    
+
+    
+
+    
+      
+      
+
+      <i class="far fa-clock" aria-hidden="true"></i>
+      
+        1 minute read
+      
+    
+
+  </p>
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="시작하며">시작하며</h2>
+
+<p>어느 화술 교실에서 들었던 말이 생각난다.</p>
+
+<p><em>“지식을 끌어올리는 가장 좋은 방법 중 하나는, 남을 가르치면서 자신 또한 배우는 것입니다.”</em></p>
+
+<p>개발이든 무엇이든 구글에 찾아보면 잘 정리된 블로그들이 즐비하지만,</p>
+
+<p>그것을 찾아보고 바로 문제 해결하는데에서 그친다면, 그것은 금방 잊게 될 확률이 크다.</p>
+
+<p>이 진리를 이제야 깨닫고, 블로그에 내가 경험 했던 것들을 수록 하고자 한다.</p>
+
+<h3 id="github-pages-">GitHub Pages ?</h3>
+
+<p>GitHub Pages는 다양한 용도로 만들어지는 Repository를 일종의 홈페이지 형태로 보여주는 GitHub의 서비스입니다.</p>
+
+<p>자신의 GitHub 계정을 통해, 적절한 절차를 따라 저장소를 생성하면, GitHub은 내부적으로 GitHub Pages를 위한 특별한 저장소를 생성합니다.</p>
+
+<p><img src="/assets/img/20200910-special-repository.JPG" alt="특별한 Repository" /></p>
+
+<p>이 저장소는 마치 Static Web Server처럼 동작하며, 저장된 소스를 요청자에게 정적 리소스로 제공하죠.</p>
+
+<p>쉽게 말하자면, Github이 제공하는 무료 호스팅인 것입니다. <del>(간지나는 도메인은 덤)</del></p>
+
+<p>또 하나의 특별한 점은, 정적 사이트 생성기인 jekyll을 지원한다는 점이며, jekyll은 그 유명한 wordpress와 유사한 기능을 제공합니다.</p>
+
+<p>오늘은 이 깃헙 Pages 저장소를 생성해 보겠습니다.</p>
+
+<h3 id="만들기">만들기</h3>
+
+<h4 id="github-repository-생성">Github Repository 생성</h4>
+
+<p>우선 github.com에 접속합니다. 계정이 없으신 분들은 계정을 생성하시고, 계정이 있으신 분들은 자신의 Repositories에서 New 버튼을 통해 새로운 저장소를 생성하는 화면으로 이동합니다.</p>
+
+<p><img src="/assets/img/202009142236.png" alt="New버튼 위치" /></p>
+
+<p>이 버튼을 누르면 다음과 같은 페이지로 이동하게 됩니다.</p>
+
+<p><img src="/assets/img/202009142248.png" alt="Repository 생성 화면. 필자는 이미 생성하였기 때문에 error가 발생하고 있다." /></p>
+
+<p>Repository name 에는 [본인의 깃헙id].github.io 를 입력합니다. 필자는 이미 생성했기 때문에 이미 존재한다는 오류가 발생하고 있습니다.</p>
+
+<p>Public과 Private 중 원하는 옵션을 선택하고, 가장 하단의 초록색 버튼인 Create repository 버튼을 클릭하여 Repository 생성을 완료합니다.</p>
+
+<h4 id="내-컴퓨터에-환경-세팅하기">내 컴퓨터에 환경 세팅하기</h4>
+
+<p>Github Repository도 생성하였으니, 이제 로컬환경(내 컴퓨터)에도 블로깅에 필요한 환경을 구성해야 할 것 같습니다.</p>
+
+<p>우선 jekyll을 사용하기 위해, jekyll을 동작시키는 프로그래밍언어인 Ruby를 설치해야합니다.</p>
+
+<p><img src="/assets/img/202009142314.png" alt="추천되는 루비 인스톨러 버전" /></p>
+
+<p><a href="https://rubyinstaller.org/downloads/">https://rubyinstaller.org/downloads/</a> 으로 이동 후, “WITH DEVKIT” 중 하나의 버전을 택하여 다운로드 받고, 설치를 진행합니다.(가급적이면 추천하는 버전을 설치하는것이 좋습니다.)</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#blog" class="page__taxonomy-item" rel="tag">Blog</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#github-pages" class="page__taxonomy-item" rel="tag">Github Pages</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/#jekyll" class="page__taxonomy-item" rel="tag">jekyll</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#exp" class="page__taxonomy-item" rel="tag">exp</a>
+    
+    </span>
+  </p>
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-09-14T19:37:02+09:00">September 14, 2020</time></p>
+
+
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=GitHubPages%EB%A5%BC+%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC+%EB%B8%94%EB%A1%9C%EA%B7%B8+%EB%A7%8C%EB%93%A4%EA%B8%B0++%281%29%20http%3A%2F%2Flocalhost%3A4000%2Fexp%2F2243%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fexp%2F2243%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fexp%2F2243%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">관련 있는 글</h4>
+      <div class="grid__wrapper">
+        
+          
+            
+      </div>
+    </div>
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com/lmiz2?tab=repositories" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://www.instagram.com/dokku___/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2020 Song Hyeon Seok. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/exp/2243/";  /* Replace PAGE_URL with your page's canonical URL variable */
+      this.page.identifier = "/exp/2243"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+    };
+    (function() { /* DON'T EDIT BELOW THIS LINE */
+      var d = document, s = d.createElement('script');
+      s.src = 'https://lmiz2-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

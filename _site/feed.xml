@@ -1,1 +1,53 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-14T22:13:35+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dokku__’s ⭐Favorites</title><subtitle>즐겨찾기를 옮겨두는 곳</subtitle><author><name>dokku__</name><email>shs3146@gmail.com</email></author></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-09-14T23:25:19+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dokku__’s ⭐Favorites</title><subtitle>즐겨찾기를 옮겨두는 곳</subtitle><author><name>dokku__</name><email>shs3146@gmail.com</email></author><entry><title type="html">GitHubPages를 이용하여 블로그 만들기 (1)</title><link href="http://localhost:4000/exp/2243/" rel="alternate" type="text/html" title="GitHubPages를 이용하여 블로그 만들기 (1)" /><published>2020-09-14T19:37:02+09:00</published><updated>2020-09-14T19:37:02+09:00</updated><id>http://localhost:4000/exp/2243</id><content type="html" xml:base="http://localhost:4000/exp/2243/">&lt;h2 id=&quot;시작하며&quot;&gt;시작하며&lt;/h2&gt;
+
+&lt;p&gt;어느 화술 교실에서 들었던 말이 생각난다.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;“지식을 끌어올리는 가장 좋은 방법 중 하나는, 남을 가르치면서 자신 또한 배우는 것입니다.”&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;개발이든 무엇이든 구글에 찾아보면 잘 정리된 블로그들이 즐비하지만,&lt;/p&gt;
+
+&lt;p&gt;그것을 찾아보고 바로 문제 해결하는데에서 그친다면, 그것은 금방 잊게 될 확률이 크다.&lt;/p&gt;
+
+&lt;p&gt;이 진리를 이제야 깨닫고, 블로그에 내가 경험 했던 것들을 수록 하고자 한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;github-pages-&quot;&gt;GitHub Pages ?&lt;/h3&gt;
+
+&lt;p&gt;GitHub Pages는 다양한 용도로 만들어지는 Repository를 일종의 홈페이지 형태로 보여주는 GitHub의 서비스입니다.&lt;/p&gt;
+
+&lt;p&gt;자신의 GitHub 계정을 통해, 적절한 절차를 따라 저장소를 생성하면, GitHub은 내부적으로 GitHub Pages를 위한 특별한 저장소를 생성합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/20200910-special-repository.JPG&quot; alt=&quot;특별한 Repository&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 저장소는 마치 Static Web Server처럼 동작하며, 저장된 소스를 요청자에게 정적 리소스로 제공하죠.&lt;/p&gt;
+
+&lt;p&gt;쉽게 말하자면, Github이 제공하는 무료 호스팅인 것입니다. &lt;del&gt;(간지나는 도메인은 덤)&lt;/del&gt;&lt;/p&gt;
+
+&lt;p&gt;또 하나의 특별한 점은, 정적 사이트 생성기인 jekyll을 지원한다는 점이며, jekyll은 그 유명한 wordpress와 유사한 기능을 제공합니다.&lt;/p&gt;
+
+&lt;p&gt;오늘은 이 깃헙 Pages 저장소를 생성해 보겠습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;만들기&quot;&gt;만들기&lt;/h3&gt;
+
+&lt;h4 id=&quot;github-repository-생성&quot;&gt;Github Repository 생성&lt;/h4&gt;
+
+&lt;p&gt;우선 github.com에 접속합니다. 계정이 없으신 분들은 계정을 생성하시고, 계정이 있으신 분들은 자신의 Repositories에서 New 버튼을 통해 새로운 저장소를 생성하는 화면으로 이동합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/202009142236.png&quot; alt=&quot;New버튼 위치&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;이 버튼을 누르면 다음과 같은 페이지로 이동하게 됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/202009142248.png&quot; alt=&quot;Repository 생성 화면. 필자는 이미 생성하였기 때문에 error가 발생하고 있다.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Repository name 에는 [본인의 깃헙id].github.io 를 입력합니다. 필자는 이미 생성했기 때문에 이미 존재한다는 오류가 발생하고 있습니다.&lt;/p&gt;
+
+&lt;p&gt;Public과 Private 중 원하는 옵션을 선택하고, 가장 하단의 초록색 버튼인 Create repository 버튼을 클릭하여 Repository 생성을 완료합니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;내-컴퓨터에-환경-세팅하기&quot;&gt;내 컴퓨터에 환경 세팅하기&lt;/h4&gt;
+
+&lt;p&gt;Github Repository도 생성하였으니, 이제 로컬환경(내 컴퓨터)에도 블로깅에 필요한 환경을 구성해야 할 것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;우선 jekyll을 사용하기 위해, jekyll을 동작시키는 프로그래밍언어인 Ruby를 설치해야합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/202009142314.png&quot; alt=&quot;추천되는 루비 인스톨러 버전&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://rubyinstaller.org/downloads/&quot;&gt;https://rubyinstaller.org/downloads/&lt;/a&gt; 으로 이동 후, “WITH DEVKIT” 중 하나의 버전을 택하여 다운로드 받고, 설치를 진행합니다.(가급적이면 추천하는 버전을 설치하는것이 좋습니다.)&lt;/p&gt;</content><author><name>dokku__</name><email>shs3146@gmail.com</email></author><category term="exp" /><category term="jekyll" /><category term="Github Pages" /><category term="Blog" /><summary type="html">시작하며</summary></entry></feed>
