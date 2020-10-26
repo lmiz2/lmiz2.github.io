@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-10-19T21:13:15+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dokku__’s ⭐Favorites</title><subtitle>즐겨찾기를 옮겨두는 곳</subtitle><author><name>dokku__</name><email>shs3146@gmail.com</email></author><entry><title type="html">[java] java와 maven으로 어디에서나 실행가능한 프로그램(exe) 만들기</title><link href="http://localhost:4000/exp/2120/" rel="alternate" type="text/html" title="[java] java와 maven으로 어디에서나 실행가능한 프로그램(exe) 만들기" /><published>2020-09-28T21:22:02+09:00</published><updated>2020-09-28T21:22:02+09:00</updated><id>http://localhost:4000/exp/2120</id><content type="html" xml:base="http://localhost:4000/exp/2120/">&lt;p&gt;개인적인 용도의 유틸리티성 프로그램을 만들다 보면, 문득 자바가 그리워졌다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-10-26T22:40:48+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dokku__’s ⭐Favorites</title><subtitle>즐겨찾기를 옮겨두는 곳</subtitle><author><name>dokku__</name><email>shs3146@gmail.com</email></author><entry><title type="html">[Network]내부망을 가능하게 만드는 NAT와 NAPT에 대하여</title><link href="http://localhost:4000/network/1850/" rel="alternate" type="text/html" title="[Network]내부망을 가능하게 만드는 NAT와 NAPT에 대하여" /><published>2020-10-24T18:51:00+09:00</published><updated>2020-10-24T18:51:00+09:00</updated><id>http://localhost:4000/network/1850</id><content type="html" xml:base="http://localhost:4000/network/1850/">&lt;p&gt;회사에서 일을 하다 보면, 내부망, 외부망 이라는 단어가 자주 들린다.&lt;/p&gt;
+
+&lt;p&gt;어렴풋이 회사 인트라넷을 구분하는 단어겠거니, 하고 자세한 개념은 모른채 넘어갔었는데,&lt;/p&gt;
+
+&lt;p&gt;문득 하나의 공인 IP로 어떻게 이 많은 컴퓨터들이 인터넷과 연결될까? 하는 궁금증이 생겼고,&lt;/p&gt;
+
+&lt;p&gt;그 답이 NAT(NAPT) 에 있다는것을 알게 되었다.&lt;/p&gt;
+
+&lt;h1 id=&quot;nat-network-address-translation&quot;&gt;NAT (Network Address Translation)&lt;/h1&gt;
+
+&lt;p&gt;NAT는 1개의 공인IP 주소에 N개의 사설(가상) IP주소를 매핑하는 주소변환 기술의 이름이다.&lt;/p&gt;
+
+&lt;p&gt;현재 IPv4의 주소는 전 세계적으로 고갈 상태에 있는데, NAT는 이 고갈되어가는 주소에 대한 효과적인 해결책 중 하나이며, 회사같은 하나의 공동체에서 보안성을 향상시키기 위한 수단으로 활용될수도 있다.&lt;/p&gt;
+
+&lt;p&gt;다음과 같이 여러개의 사설망 IP와, 하나의 공인IP를 할당받은 라우터가 있다고 가정해보자.
+&lt;img src=&quot;/assets/img/2020-10-25-232445.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(여기에 쓰인 IP주소는 임의의 주소이며, 이해를 돕기위해 사용되었다.)&lt;/p&gt;
+
+&lt;p&gt;이러한 상황에서 [사설망 클라이언트 1]이 외부 서버에 IPv4 패킷을 전송하게되면, 라우터는 이 패킷의 출발지 IP를 사설망 IP에서 공인IP주소로 변환한 후, 라우팅 테이블에 맵핑 정보를 기록한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2020-10-26-223406.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content><author><name>dokku__</name><email>shs3146@gmail.com</email></author><category term="Network" /><category term="Network" /><category term="NAT" /><category term="NAPT" /><summary type="html">회사에서 일을 하다 보면, 내부망, 외부망 이라는 단어가 자주 들린다.</summary></entry><entry><title type="html">[java] java와 maven으로 어디에서나 실행가능한 프로그램(exe) 만들기</title><link href="http://localhost:4000/exp/2120/" rel="alternate" type="text/html" title="[java] java와 maven으로 어디에서나 실행가능한 프로그램(exe) 만들기" /><published>2020-09-28T21:22:02+09:00</published><updated>2020-09-28T21:22:02+09:00</updated><id>http://localhost:4000/exp/2120</id><content type="html" xml:base="http://localhost:4000/exp/2120/">&lt;p&gt;개인적인 용도의 유틸리티성 프로그램을 만들다 보면, 문득 자바가 그리워졌다.&lt;/p&gt;
 
 &lt;p&gt;방대한 라이브러리로 인해 개발 생산성이 향상된다는 것이 그 이유인데,&lt;/p&gt;
 

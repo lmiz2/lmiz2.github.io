@@ -4,4 +4,10 @@ var store = [{
         "tags": ["jar to exe","java","jar","maven","dependencies","launch4j"],
         "url": "http://localhost:4000/exp/2120/",
         "teaser": null
+      },{
+        "title": "[Network]내부망을 가능하게 만드는 NAT와 NAPT에 대하여",
+        "excerpt":"회사에서 일을 하다 보면, 내부망, 외부망 이라는 단어가 자주 들린다. 어렴풋이 회사 인트라넷을 구분하는 단어겠거니, 하고 자세한 개념은 모른채 넘어갔었는데, 문득 하나의 공인 IP로 어떻게 이 많은 컴퓨터들이 인터넷과 연결될까? 하는 궁금증이 생겼고, 그 답이 NAT(NAPT) 에 있다는것을 알게 되었다. NAT (Network Address Translation) NAT는 1개의 공인IP 주소에 N개의 사설(가상)...","categories": ["Network"],
+        "tags": ["Network","NAT","NAPT"],
+        "url": "http://localhost:4000/network/1850/",
+        "teaser": null
       }]
