@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>[Network]내부망을 가능하게 만드는 NAT와 NAPT에 대하여 - dokku__’s ⭐Favorites</title>
+<!-- begin _includes/seo.html --><title>[Network]내부망을 가능하게 만드는 NAT와 NAPT의 원리 - dokku__’s ⭐Favorites</title>
 <meta name="description" content="회사에서 일을 하다 보면, 내부망, 외부망 이라는 단어가 자주 들린다.">
 
 
@@ -19,7 +19,7 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="dokku__'s ⭐Favorites">
-<meta property="og:title" content="[Network]내부망을 가능하게 만드는 NAT와 NAPT에 대하여">
+<meta property="og:title" content="[Network]내부망을 가능하게 만드는 NAT와 NAPT의 원리">
 <meta property="og:url" content="http://localhost:4000/network/1850/">
 
 
@@ -272,7 +272,7 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="[Network]내부망을 가능하게 만드는 NAT와 NAPT에 대하여">
+    <meta itemprop="headline" content="[Network]내부망을 가능하게 만드는 NAT와 NAPT의 원리">
     <meta itemprop="description" content="회사에서 일을 하다 보면, 내부망, 외부망 이라는 단어가 자주 들린다.">
     <meta itemprop="datePublished" content="2020-10-24T18:51:00+09:00">
     
@@ -280,7 +280,7 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">[Network]내부망을 가능하게 만드는 NAT와 NAPT에 대하여
+          <h1 id="page-title" class="page__title" itemprop="headline">[Network]내부망을 가능하게 만드는 NAT와 NAPT의 원리
 </h1>
           
 
@@ -297,7 +297,7 @@
 
       <i class="far fa-clock" aria-hidden="true"></i>
       
-        less than 1 minute read
+        1 minute read
       
     
 
@@ -318,7 +318,7 @@
 
 <h1 id="nat-network-address-translation">NAT (Network Address Translation)</h1>
 
-<p>NAT는 1개의 공인IP 주소에 N개의 사설(가상) IP주소를 매핑하는 주소변환 기술의 이름이다.</p>
+<p>Basic NAT, 즉 원래의 NAT는 1개의 공인IP 주소에 N개의 사설(가상) IP주소를 매핑하는 주소변환 기술의 이름이다.</p>
 
 <p>현재 IPv4의 주소는 전 세계적으로 고갈 상태에 있는데, NAT는 이 고갈되어가는 주소에 대한 효과적인 해결책 중 하나이며, 회사같은 하나의 공동체에서 보안성을 향상시키기 위한 수단으로 활용될수도 있다.</p>
 
@@ -331,6 +331,37 @@
 
 <p><img src="/assets/img/2020-10-26-223406.png" alt="" /></p>
 
+<p>이렇게 기록해둔 라우팅 테이블의 정보를 참고하여, 외부 서버(위의 예에서 125.209.222.13)에서 전송되어오는 패킷을 어떤 내부 클라이언트(위의 예에서 10.20.30.1)에게 라우팅 할지 결정하게 된다.</p>
+
+<p>그런데, 만약 둘 이상의 내부 클라이언트가 같은 외부서버에 접근하게 되면 위와 같은 라우팅 테이블로는 어떤 클라이언트에게 패킷을 라우팅 해야 할 지 알 수가 없게 된다.</p>
+
+<p><img src="/assets/img/2020-10-29-222531.png" alt="" /></p>
+
+<p>[<em>응답 패킷을 받아야 하는 클라이언트는 1인가, 3인가?</em>]</p>
+
+<p>이 문제를 해결할 수 있는 대안이 바로 NAPT이다.</p>
+
+<h1 id="napt-network-address-port-translation">NAPT (Network Address Port Translation)</h1>
+
+<p>NAPT(또는 PAT)에서는 NAT에 Port Forwarding이 추가된 형태이다.</p>
+
+<p>즉, [내부 클라이언트 IP , 내부 클라이언트 Port , 받을 Port ] 를 저장한다.</p>
+
+<p>아래 그림을 보자.</p>
+
+<p><img src="/assets/img/2020-10-31-171301.png" alt="" /></p>
+
+<p>위와 같이 라우터는 “받을 Port”를 임의로 지정하여 각 내부망 클라이언트에 맵핑 해 줌으로써,</p>
+
+<p>외부에서 하나의 공인 IP로 접근하는 여러 패킷들을 각 클라이언트에게 전달 해줄 수 있다.</p>
+
+<p>이렇게 Port에 따라 다른 목적지로 패킷을 전송하는 것을 Port Forwarding 이라고 하며,</p>
+
+<p>이 Port Forwarding이 NAT와 NAPT의 차이점이기도 하다.</p>
+
+<p>현업에서는 대체적으로 NAPT와 NAT를 구분하지 않고 NAT라고 칭한다.</p>
+
+<p><em>이상하거나 잘못된 내용에 대한 태클은 달게 받겠습니다!!</em></p>
 
         
       </section>
@@ -397,7 +428,7 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?text=%5BNetwork%5D%EB%82%B4%EB%B6%80%EB%A7%9D%EC%9D%84+%EA%B0%80%EB%8A%A5%ED%95%98%EA%B2%8C+%EB%A7%8C%EB%93%9C%EB%8A%94+NAT%EC%99%80+NAPT%EC%97%90+%EB%8C%80%ED%95%98%EC%97%AC%20http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2F1850%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?text=%5BNetwork%5D%EB%82%B4%EB%B6%80%EB%A7%9D%EC%9D%84+%EA%B0%80%EB%8A%A5%ED%95%98%EA%B2%8C+%EB%A7%8C%EB%93%9C%EB%8A%94+NAT%EC%99%80+NAPT%EC%9D%98+%EC%9B%90%EB%A6%AC%20http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2F1850%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fnetwork%2F1850%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
