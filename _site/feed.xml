@@ -1,4 +1,182 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-10-31T17:23:29+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dokku__’s ⭐Favorites</title><subtitle>즐겨찾기를 옮겨두는 곳</subtitle><author><name>dokku__</name><email>shs3146@gmail.com</email></author><entry><title type="html">[Network]내부망을 가능하게 만드는 NAT와 NAPT의 원리</title><link href="http://localhost:4000/network/1850/" rel="alternate" type="text/html" title="[Network]내부망을 가능하게 만드는 NAT와 NAPT의 원리" /><published>2020-10-24T18:51:00+09:00</published><updated>2020-10-24T18:51:00+09:00</updated><id>http://localhost:4000/network/1850</id><content type="html" xml:base="http://localhost:4000/network/1850/">&lt;p&gt;회사에서 일을 하다 보면, 내부망, 외부망 이라는 단어가 자주 들린다.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-15T22:41:26+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">dokku__’s ⭐Favorites</title><subtitle>즐겨찾기를 옮겨두는 곳</subtitle><author><name>dokku__</name><email>shs3146@gmail.com</email></author><entry><title type="html">[Java] 효율적인 equals와 hashcode</title><link href="http://localhost:4000/java/1535/" rel="alternate" type="text/html" title="[Java] 효율적인 equals와 hashcode" /><published>2020-11-07T15:35:00+09:00</published><updated>2020-11-07T15:35:00+09:00</updated><id>http://localhost:4000/java/1535</id><content type="html" xml:base="http://localhost:4000/java/1535/">&lt;p&gt;java에서는 모든 클래스가 Object 클래스를 상속한다.&lt;/p&gt;
+
+&lt;p&gt;그리고 이 Object 클래스에는 여러가지 기본적인 메소드들이 있는데, 오늘은 그 중 equals 와 hashcode 메소드에 대하여 공부했던 점에 대해 정리해 보고자 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;object-클래스&quot;&gt;Object 클래스&lt;/h2&gt;
+
+&lt;p&gt;자바에서 모든 클래스는 Object클래스를 상속하며, 따로 extends 키워드를 사용하여 상속하지 않더라도 컴파일러가 자동으로 Object를 상속하도록 만든다.&lt;/p&gt;
+
+&lt;p&gt;이는 모든 클래스가 공통적으로 가져야 하는 메소드들을 지원하기 위함이다.&lt;/p&gt;
+
+&lt;p&gt;Object 클래스에는 다음과 같은 11개의 메소드들이 정의되어 있다.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Modifier and Type&lt;/th&gt;
+      &lt;th&gt;Method and Description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;protected Object&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clone()&lt;/code&gt; Creates and returns a copy of this object.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;boolean&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;equals(Object obj)&lt;/code&gt; Indicates whether some other object is “equal to” this one.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;protected void&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;finalize()&lt;/code&gt; Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Class&amp;lt;?&amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;getClass()&lt;/code&gt; Returns the runtime class of this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Object&lt;/code&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;int&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hashCode()&lt;/code&gt; Returns a hash code value for the object.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notify()&lt;/code&gt; Wakes up a single thread that is waiting on this object’s monitor.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notifyAll()&lt;/code&gt; Wakes up all threads that are waiting on this object’s monitor.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;String&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toString()&lt;/code&gt; Returns a string representation of the object.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wait()&lt;/code&gt; Causes the current thread to wait until another thread invokes the  &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notify--&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notify()&lt;/code&gt;&lt;/a&gt; method or the  &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notifyAll--&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notifyAll()&lt;/code&gt;&lt;/a&gt; method for this object.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wait(long timeout)&lt;/code&gt; Causes the current thread to wait until either another thread invokes the  &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notify--&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notify()&lt;/code&gt;&lt;/a&gt; method or the  &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notifyAll--&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notifyAll()&lt;/code&gt;&lt;/a&gt; method for this object, or a specified amount of time has elapsed.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;void&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wait(long timeout,    int nanos)&lt;/code&gt; Causes the current thread to wait until another thread invokes the  &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notify--&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notify()&lt;/code&gt;&lt;/a&gt; method or the  &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#notifyAll--&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;notifyAll()&lt;/code&gt;&lt;/a&gt; method for this object, or some other thread interrupts the current thread, or a certain amount of real time has elapsed.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;이들 메소드들은 OOP의 효율적인 지원을 위해 꼭 필요한 메소드들이며, 많은 중요한 메소드가 있지만, 오늘은 equals와 hashcode에 대해서 정리해본다.&lt;/p&gt;
+
+&lt;h2 id=&quot;equals-메소드&quot;&gt;equals 메소드&lt;/h2&gt;
+
+&lt;p&gt;equals는 &lt;u&gt;논리적 동치성&lt;/u&gt;을 검사하기 위해 존재한다고 볼수 있다. 논리적 동치성이란 그야말로 그 &lt;strong&gt;객체가 가지는 값&lt;/strong&gt;이 같은가를 의미한다.&lt;/p&gt;
+
+&lt;p&gt;우리가 잘 알고 있는 java.lang.String 클래스를 예로 들어 보자.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;		&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;456&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;위 코드의 출력은 모두 &lt;strong&gt;false&lt;/strong&gt;이다.&lt;/p&gt;
+
+&lt;p&gt;이는 == 연산자가 단순히 객체의 메모리 주소를 비교하기 때문이며, &lt;u&gt;변수가 가리키는 인스턴스가 다르다면 false를 반환한다&lt;/u&gt;.&lt;/p&gt;
+
+&lt;p&gt;결국 &lt;em&gt;str1&lt;/em&gt;과 &lt;em&gt;str3&lt;/em&gt; 은 같은 문자열을 가진 것처럼 보이지만, &lt;em&gt;str3&lt;/em&gt;이 &lt;em&gt;new&lt;/em&gt; 키워드를 통해 새로운 메모리 공간을 할당받아, Heap memory에 인스턴화 되어 존재하게 되었으므로, &lt;u&gt;str1과 str3는 다른 인스턴스가 된다&lt;/u&gt;.&lt;/p&gt;
+
+&lt;p&gt;우리는 두 String이 똑같은 문자열 값을 가지는지 알고싶다. 그렇다면 어떻게 비교해야 할까?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;		&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;456&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;str3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;123&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// false&lt;/span&gt;
+		&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;str3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;위와 같이 equals 메소드를 이용하여 비교하게 되면, 두 String 객체가 같은 문자열값을 가지는지 비교할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이는 java.lang.String 클래스에서 &lt;u&gt;equals 메소드를 아래와 같이 Override 하고 있기에 가능한 일이다.&lt;/u&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;this&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 같은 인스턴스인경우 true 리턴&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anObject&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;instanceof&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// String 타입의 인스턴스인 경우&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anotherString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;anObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anotherString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 문자열 값의 길이가 같은 경우, 값 비교 시작&lt;/span&gt;
+                &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;anotherString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;])&lt;/span&gt;
+                        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 중간에 다른 값이 있는 경우 false 리턴&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 모든 값이 같음, true 리턴&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;이 equals 메소드는 전략적으로 잘 짜여진 equals이다.&lt;/p&gt;
+
+&lt;p&gt;이펙티브 자바에서는 효율적인 equals로 재정의하기 위해서는 다음의 순서대로 구현하는것이 좋다고 언급되어 있다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ol&gt;
+    &lt;li&gt;== 연산자를 이용하여 입력이 자기 자신의 참조인지 확인한다.&lt;/li&gt;
+    &lt;li&gt;instanceof 연산자로 입력이 올바른 타입인지 확인한다. 이때 null 체크까지 해결되므로, null인지 체크할 필요가 없어진다.&lt;/li&gt;
+    &lt;li&gt;입력을 명시적 형변환 한다.&lt;/li&gt;
+    &lt;li&gt;입력 객체와 자기 자신의 대응되는 논리적 핵심 필드들이 모두 일치하는지 하나하나 검사한다. 이 때, 하나라도 다르다면 false를 리턴하고, 모두 같다면 true를 리턴한다.&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;이를 위의 String.equals와 비교해보면 완벽히 순서가 일치하는것을 알 수 있다.&lt;/p&gt;
+
+&lt;p&gt;추가적으로 덧붙이자면, &lt;u&gt;float 와 double을 제외한 Primitive type&lt;/u&gt;은 == 연산자를 이용하여 비교하고, &lt;u&gt;Reference 타입 필드는 각각의 equals 메소드를 이용&lt;/u&gt;하여 비교한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;float와 double을 비교할 때 == 을 사용하지 않는 이유&lt;/u&gt;는, float과 double은 부동소수점을 표현하는데에 사용되기도 하기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;부동소수점 표현 방식은 오차를 가질 수 있으므로, 정확한 값 비교 연산자인 ==를 사용하는것은 바람직하지 않다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;float와 double을 비교해야만 하는 경우에는 &lt;strong&gt;Float.compare&lt;/strong&gt; 메소드와 &lt;strong&gt;Double.compare&lt;/strong&gt;메소드를 이용하도록 하자.&lt;/p&gt;
+
+&lt;p&gt;따라서, equals를 구현할 때에는 논리적인 값을 표현하는 필드에는 어떤 것 이 있는지 생각해보고, 해당되는 필드들에 대하여 위와 같은 순서로 구현하는 것이 좋다.&lt;/p&gt;
+
+&lt;h2 id=&quot;hashcode-메소드&quot;&gt;hashcode 메소드&lt;/h2&gt;
+
+&lt;p&gt;자바 Object 명세에서는 equals 메소드를 재정의 하였다면 hashcode 메소드 또한 재 정의 하도록 규정하고 있다.&lt;/p&gt;
+
+&lt;p&gt;hashcode 메소드는 자바의 Collection 프레임 워크에 존재하는 HashMap과 HashSet등을 지원하기 위하여 만들어 졌으며, 이 메소드는 해당 객체의 hash값을 반환해야한다.&lt;/p&gt;
+
+&lt;p&gt;또한, 이 객체와 다른 한 객체의 equals 결과가 true라면, &lt;strong&gt;그 둘의 hashcode 값은 반드시 같아야 한다.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;(반대로, hashcode 값이 같다고 해서 equals의 결과가 true일 필요는 없다.)&lt;/p&gt;
+
+&lt;p&gt;hashcode의 용도를 간단하게 축약해서 말하자면, “&lt;strong&gt;다양한 데이터 타입을 배열에 넣기 위한 인덱스&lt;/strong&gt;” 정도로 말 할수 있을 것 같다.&lt;/p&gt;
+
+&lt;p&gt;다음과 같이, char 타입의 알파벳들을 배열에 저장하는 상황을 떠올려 보자.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2020-11-15-222950.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;만약 ‘E’가 어디에 있는지 찾으려면, 단순 비교 검색으로는 &lt;u&gt;5번의 비교연산이 발생한다&lt;/u&gt;.&lt;/p&gt;
+
+&lt;p&gt;하지만 hashcode를 이용하여 배열에 저장한다면 더 쉽게 찾을 수 있을 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/2020-11-15-223231.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;위와 같이 각 알파벳의 hashcode를 얻어, 배열의 길이로 나눈 나머지를 인덱스로 정한다면, 각 알파벳이 어디있는지는 hashcode만 계산해내면 알 수 있게 된다.&lt;/p&gt;
+
+&lt;p&gt;물론 위의 예는 간략한 예이고, 실제로는 해시 충돌 등 여러 문제를 해결해야 안정적이고 빠른 해시맵(셋)의 성능을 기대할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;좋은 해시 함수일수록 해시 충돌이 적다. 해시 충돌은 서로 다른 객체에서 동일한 해시코드를 얻는 현상을 일컫는다.&lt;/p&gt;
+
+&lt;p&gt;위의 예에서 보면, 알파벳 ‘E’의 hashcode는 5였다. 하지만 알파벳 ‘M’의 hashcode 또한 5이다. 이 둘은 다른 값을 가진 객체지만, 같은 해시코드 값을 가지며, 이것이 바로 해시 충돌이다.&lt;/p&gt;
+
+&lt;p&gt;하지만 안타깝게도 &lt;u&gt;완벽한 hashcode 함수를 만드는것은 불가능에 가깝다&lt;/u&gt;. 그렇기에 hashcode 함수 또한 효율적으로 동작하도록 작성하는 방법이 있는데, 그것은 다음과 같다.&lt;/p&gt;</content><author><name>dokku__</name><email>shs3146@gmail.com</email></author><category term="Java" /><category term="Java" /><category term="equals" /><category term="hashcode" /><summary type="html">java에서는 모든 클래스가 Object 클래스를 상속한다.</summary></entry><entry><title type="html">[Network]내부망을 가능하게 만드는 NAT와 NAPT의 원리</title><link href="http://localhost:4000/network/1850/" rel="alternate" type="text/html" title="[Network]내부망을 가능하게 만드는 NAT와 NAPT의 원리" /><published>2020-10-24T18:51:00+09:00</published><updated>2020-10-24T18:51:00+09:00</updated><id>http://localhost:4000/network/1850</id><content type="html" xml:base="http://localhost:4000/network/1850/">&lt;p&gt;회사에서 일을 하다 보면, 내부망, 외부망 이라는 단어가 자주 들린다.&lt;/p&gt;
 
 &lt;p&gt;어렴풋이 회사 인트라넷을 구분하는 단어겠거니, 하고 자세한 개념은 모른채 넘어갔었는데,&lt;/p&gt;
 

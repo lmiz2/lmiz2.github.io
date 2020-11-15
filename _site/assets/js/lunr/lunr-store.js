@@ -10,4 +10,10 @@ var store = [{
         "tags": ["Network","NAT","NAPT"],
         "url": "http://localhost:4000/network/1850/",
         "teaser": null
+      },{
+        "title": "[Java] 효율적인 equals와 hashcode",
+        "excerpt":"java에서는 모든 클래스가 Object 클래스를 상속한다. 그리고 이 Object 클래스에는 여러가지 기본적인 메소드들이 있는데, 오늘은 그 중 equals 와 hashcode 메소드에 대하여 공부했던 점에 대해 정리해 보고자 한다. Object 클래스 자바에서 모든 클래스는 Object클래스를 상속하며, 따로 extends 키워드를 사용하여 상속하지 않더라도 컴파일러가 자동으로 Object를 상속하도록 만든다. 이는 모든 클래스가 공통적으로...","categories": ["Java"],
+        "tags": ["Java","equals","hashcode"],
+        "url": "http://localhost:4000/java/1535/",
+        "teaser": null
       }]
